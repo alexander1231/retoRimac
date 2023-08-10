@@ -6,6 +6,8 @@ const crear = async (event) => {
     const dynamodb = new AWS.DynamoDB.DocumentClient();
     console.log(event)
     const {
+        title,
+        description,
         name,
         height, 
         mass, 
@@ -26,6 +28,7 @@ const crear = async (event) => {
         "genero": gender,
         "planeta origen": homeworld,
         "vehiculo": vehicles,
+        "url": url,
         createdAt
     }
     
