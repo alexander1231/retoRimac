@@ -1,0 +1,11 @@
+{
+  "name": "retorimac",
+  "dependencies": {
+    "aws-sdk": "^2.1432.0",
+    "axios": "^1.4.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "serverless-auto-swagger": "^2.12.0"
+  }
+}

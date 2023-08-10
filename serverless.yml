@@ -1,0 +1,78 @@
+org: x4nd3r
+app: retorimac
+service: retorimac
+frameworkVersion: "2 || 3"
+
+plugins:
+  - serverless-auto-swagger
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:*
+          Resource:
+            - arn:aws:dynamodb:us-east-1:060233393602:table/RetoRimac
+
+functions:
+  crearRegistro:
+    handler: src/crearRegistro.crear
+    events:
+      - httpApi:
+          path: /registros
+          method: POST
+          queryStringParameters: {
+              bob: {
+                  required: true,
+                  type: 'string',
+                  description: 'bob',
+              },
+              count: {
+                  required: false,
+                  type: 'integer',
+              },
+          }
+          responseData: {
+              200: {
+                  description: 'Devuelve los datos de dynamo como datos de la api Swapi',
+                  bodyType: "ListarRegistros",
+              }
+          }
+  listarRegistro:
+    handler: src/listarRegistro.listarRegistro
+    events:
+      - httpApi:
+          path: /registros
+          method: GET
+          queryStringParameters: {
+              url: {
+                  required: true,
+                  type: 'string',
+                  description: 'api swapi',
+              },
+              path: {
+                  required: true,
+                  type: 'string',
+                  description: 'path del api swapi'
+              },
+          }
+    
+
+resources:
+  Resources:
+    RetoRimac:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: RetoRimac
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
