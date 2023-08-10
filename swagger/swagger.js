@@ -20,16 +20,45 @@
         "parameters": [
           {
             "in": "query",
-            "name": "bob",
+            "name": "name",
             "type": "string",
-            "description": "bob",
+            "description": "name",
             "required": true
           },
           {
             "in": "query",
-            "name": "count",
-            "type": "integer",
-            "required": false
+            "name": "height",
+            "type": "string",
+            "description": "height",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "mass",
+            "type": "string",
+            "description": "mass",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "gender",
+            "type": "string",
+            "description": "gender",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "homeworld",
+            "type": "string",
+            "description": "homeworld",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "vehicles",
+            "type": "string",
+            "description": "vehicles",
+            "required": true
           }
         ],
         "responses": {
@@ -57,13 +86,6 @@
             "name": "url",
             "type": "string",
             "description": "api swapi",
-            "required": true
-          },
-          {
-            "in": "query",
-            "name": "path",
-            "type": "string",
-            "description": "path del api swapi",
             "required": true
           }
         ],

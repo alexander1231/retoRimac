@@ -27,14 +27,35 @@ functions:
           path: /registros
           method: POST
           queryStringParameters: {
-              bob: {
+              name: {
                   required: true,
                   type: 'string',
-                  description: 'bob',
+                  description: 'name',
               },
-              count: {
-                  required: false,
-                  type: 'integer',
+              height: {
+                  required: true,
+                  type: 'string',
+                  description: 'height',
+              },
+              mass: {
+                  required: true,
+                  type: 'string',
+                  description: 'mass',
+              },
+              gender: {
+                  required: true,
+                  type: 'string',
+                  description: 'gender',
+              },
+              homeworld: {
+                  required: true,
+                  type: 'string',
+                  description: 'homeworld',
+              },
+              vehicles: {
+                  required: true,
+                  type: 'string',
+                  description: 'vehicles',
               },
           }
           responseData: {
@@ -54,12 +75,7 @@ functions:
                   required: true,
                   type: 'string',
                   description: 'api swapi',
-              },
-              path: {
-                  required: true,
-                  type: 'string',
-                  description: 'path del api swapi'
-              },
+              }
           }
     
 

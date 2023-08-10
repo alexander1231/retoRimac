@@ -6,8 +6,6 @@ const crear = async (event) => {
     const dynamodb = new AWS.DynamoDB.DocumentClient();
     console.log(event)
     const {
-        title,
-        description,
         name,
         height, 
         mass, 
